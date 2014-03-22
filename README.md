@@ -4,13 +4,17 @@ Outlining the graph data model, based on the [Cognitive Network Protocol](http:/
 
 The core of this model are the notions of Concept, Statement, Context, User and Narrative, which are employed to provide a robust way of connecting disjointed pieces of data and knowledge.
 
+
 =================
+
 
 ###1. Objective
 Describe a general framework that could be used to abstract cognitive processes into a network-graph model.
 Based on this framework, design a scalable data model that could be used to store, retrieve, and discover new knowledge: in short, which could emulate all the facets of thinking process.
 
+
 =================
+
 
 ###2. Framework and Conceptual Model
 
@@ -41,7 +45,9 @@ For example, the user-perceive in this case are all the users who wrote this tex
 
 **The model attempts to describe as a graph everything that can be expressed through language or any other semiotic system.**
 
+
 =================
+
 
 ###3. Data Model
 
@@ -70,7 +76,7 @@ Some nodes may also have additional properties, such as
 
 The Figure 1 above shows a basic outline of this data model implemented in Neo4J interface.
 
-
+=================
 
 There are 6 types of **edges** within the database, labelled as:
 
@@ -133,6 +139,9 @@ They are similar to the :TO type of connections, except that their properties ar
 * .narrative (indicates the unique ID of the Narrative node)
 
 
+=================
+
+
 ### 4. Examples
 
 The Figure 2 below shows two :Statement nodes: "the moon is full" made in the "private" context (think of it as the user's private notes) and "the moon is round" made in the "idea" context.
@@ -147,6 +156,8 @@ Figure 3 below shows that a new :Statement "the moon is the satellite of the ear
 
 ![](/images/multiple-user-neo4j-graph-data-model.png "Multiple user graph in Neo4J")
 
+
+=================
 
 
 ### 5. Neo4J Graph Database Implementation
@@ -163,6 +174,8 @@ The statement to retrieve this information (as shown on Figure 1 above):
 > MATCH (u:User{name:"infranodus"}), (c:Concept), (s:Statement), (ctx:Context), c-[:BY]->u, s-[:BY]->u, ctx-[:BY]->u RETURN c,s,ctx,u;
 
 
+=================
+
 
 ### 6. Bypassing Conceptual Layer, Connecting Resources
 
@@ -175,6 +188,8 @@ In case we are dealing with :Statement nodes that already contain conceptual dat
 The Cypher query above will get all the :Statement nodes added by a :User, find which :Concept nodes connect them, and sort those :Statement nodes by the number of relations reach of them has.
 
 In this case the "rich edge" description of the connections between the statements is defined by the concepts that connect them.
+
+=================
 
 Another case, however, is when the user does not want to have any conceptual layer connecting the statements.
 
@@ -211,11 +226,16 @@ It may have a default content of the kind: "http://youtube.com/video_id_1 and ht
 However, the additional information about the user who actually made this connection as well as the context in which the connection was made already provides sufficient background info to make this connection more meaningful than just a link between two resources.
 
 
+=================
+
+
 ### 7. Demo Version
 
 A demo version of this database model in Neo4J and Node.Js is implemented in InfraNodus project:
 http://github.com/noduslabs/infranodus
 
+
+=================
 
 
 ### 8. To-Do
@@ -227,6 +247,7 @@ http://github.com/noduslabs/infranodus
 
 
 =================
+
 
 
 ####CC BY-SA 4.0 License####
