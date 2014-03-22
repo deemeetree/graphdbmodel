@@ -213,15 +213,16 @@ However, the additional information about the user who actually made this connec
 
 ### 7. Demo Version
 
-A demo version of this database model is implemented in InfraNodus project:
+A demo version of this database model in Neo4J and Node.Js is implemented in InfraNodus project:
 http://github.com/noduslabs/infranodus
 
 
 
 ### 8. To-Do
 
-* Impelement resource metadata model
-
+* Implement resource metadata model
+* Program more interfaces (for OrientDB, TitanDB)
+* Create impelemntations in different languages (PHP, Python, Node.Js/Javascript, Java)
 
 
 
