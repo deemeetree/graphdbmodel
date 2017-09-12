@@ -242,7 +242,7 @@ http://github.com/noduslabs/infranodus
 
 * Implement resource metadata model
 * Program more interfaces (for OrientDB, TitanDB)
-* Create impelemntations in different languages (PHP, Python, Node.Js/Javascript, Java)
+* Create implementations in different languages (PHP, Python, Node.Js/Javascript, Java)
 
 
 
