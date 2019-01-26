@@ -1,14 +1,16 @@
-##Cognitive Graph Database Structure Draft Proposal
+## Cognitive Graph Database Structure Draft Proposal
 
 Outlining the graph data model, based on the [Cognitive Network Protocol](http://noduslabs.com/research/cognitive-network-protocol/).
 
 The core of this model are the notions of Concept, Statement, Context, User and Narrative, which are employed to provide a robust way of connecting disjointed pieces of data and knowledge.
 
+This model has been successfully used in text-to-network visualization system http://infranodus.com which has currently several millions of nodes and many more millions of edges. This data structure allows to perform complex queries, such as "show me all the relations between the nodes that a certain user added at a certain moment into a certain graph that satisfy this criteria". Recent optimizations in Neo4J queries which you can see on https://github.com/noduslabs/infranodus/blob/master/lib/db/neo4j.js made it possible to query even very large graphs with tens of thousands of connections in less than a second.
+
 
 =================
 
 
-###1. Objective
+### 1. Objective
 Describe a general framework that could be used to abstract cognitive processes into a network-graph model.
 Based on this framework, design a scalable data model that could be used to store, retrieve, and discover new knowledge: in short, which could emulate all the facets of thinking process.
 
@@ -16,7 +18,7 @@ Based on this framework, design a scalable data model that could be used to stor
 =================
 
 
-###2. Framework and Conceptual Model
+### 2. Framework and Conceptual Model
 
 * Tha basic building block of the model is a **concept**
 * The **concepts** appear within **statements**
@@ -49,7 +51,7 @@ For example, the user-perceive in this case are all the users who wrote this tex
 =================
 
 
-###3. Data Model
+### 3. Data Model
 
 The following is the translation of the above framework into the graph database model.
 It is specifically designed to allow for any types of requests and to remain flexible enough for future modifications.
@@ -137,6 +139,8 @@ They are similar to the :TO type of connections, except that their properties ar
 * .timestamp
 * .user
 * .narrative (indicates the unique ID of the Narrative node)
+
+Note: :THRU might not be necessary not to overload the data as :TO will fulfill the functions in case you don't use the narrative mode.
 
 
 =================
@@ -234,6 +238,9 @@ However, the additional information about the user who actually made this connec
 A demo version of this database model in Neo4J and Node.Js is implemented in InfraNodus project:
 http://github.com/noduslabs/infranodus
 
+You can try it online on 
+http://infranodus.com 
+
 
 =================
 
@@ -242,7 +249,7 @@ http://github.com/noduslabs/infranodus
 
 * Implement resource metadata model
 * Program more interfaces (for OrientDB, TitanDB)
-* Create implementations in different languages (PHP, Python, Node.Js/Javascript, Java)
+* Create implementations in different languages (Python, Node.Js/Javascript, Java)
 
 
 
@@ -250,7 +257,7 @@ http://github.com/noduslabs/infranodus
 
 
 
-####CC BY-SA 4.0 License####
+#### CC BY-SA 4.0 License####
 
 Licensed under Creative Commons, Attribution-ShareAlike  License.
 You can remix, tweak, and build upon this work for non-commercial or commercial purposes, as long as you credit the previous contributors and license your new creations under the identical terms, making them open source and available to everybody for free.
@@ -258,4 +265,3 @@ https://creativecommons.org/licenses/by-sa/4.0/
 
 Developed by:
 [Dmitry Paranyushkin](http://github.com/deemeetree) | [Nodus Labs](http://www.noduslabs.com) | info@noduslabs.com
-Your Name | Affiliation | Contact here
