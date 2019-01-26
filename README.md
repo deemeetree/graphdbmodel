@@ -4,7 +4,9 @@ Outlining the graph data model, based on the [Cognitive Network Protocol](http:/
 
 The core of this model are the notions of Concept, Statement, Context, User and Narrative, which are employed to provide a robust way of connecting disjointed pieces of data and knowledge.
 
-This model has been successfully used in text-to-network visualization system http://infranodus.com which has currently several millions of nodes and many more millions of edges. This data structure allows to perform complex queries, such as "show me all the relations between the nodes that a certain user added at a certain moment into a certain graph that satisfy this criteria". Recent optimizations in Neo4J queries which you can see on https://github.com/noduslabs/infranodus/blob/master/lib/db/neo4j.js made it possible to query even very large graphs with tens of thousands of connections in less than a second.
+This model has been successfully used in text-to-network visualization system http://infranodus.com which has currently about 250000 of nodes and about 26000000 edges. This data structure allows to perform complex queries, such as "show me all the relations between the nodes that a certain user added at a certain moment into a certain graph that satisfy this criteria". 
+
+Recent optimizations in Neo4J queries which you can see on https://github.com/noduslabs/infranodus/blob/master/lib/db/neo4j.js made it possible to query even very large graphs with tens of thousands of connections in less than a second.
 
 
 =================
